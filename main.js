@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let content = document.createElement('div');
         let btn = document.createElement('button');
 
+        item.setAttribute('data-id', doc.id);
         item.setAttribute('class', 'item');
         rightDiv.setAttribute('class', 'right floated content');
         rightDiv.setAttribute('data-id', doc.id);
@@ -38,9 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
         dataBase.collection('things').doc(itemId).delete();
     };
 
-    dataBase.collection('things').get().then((snapshot)=>{
-        snapshot.docs.forEach(doc => {
-            displayItems(doc);
+    dataBase.collection('things').onSnapshot(snapshot => {
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if(change.type == 'added') {
+                displayItems(change.doc);
+            } else if (change.type == 'removed') {
+                let item = document.querySelector(`[data-id="${change.doc.id}"]`);
+                list.removeChild(item);
+            }
         });
     });
 
