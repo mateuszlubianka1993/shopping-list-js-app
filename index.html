@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <link rel="stylesheet" href="./style.css">
     <title>Shopping List</title>
 </head>
 <body>
     
-
+    <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyCVlPKG_iJcUsfQhbpwp7u2eqGNQkhHQ-g",
+          authDomain: "shopping-list-js.firebaseapp.com",
+          databaseURL: "https://shopping-list-js.firebaseio.com",
+          projectId: "shopping-list-js",
+          storageBucket: "shopping-list-js.appspot.com",
+          messagingSenderId: "87227981692",
+          appId: "1:87227981692:web:cf7b4207f1b84204"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const dataBase = firebase.firestore();
+      </script>
 <script src="./main.js"></script>
 </body>
 </html>
