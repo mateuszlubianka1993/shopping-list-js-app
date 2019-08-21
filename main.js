@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let leftDiv = document.createElement('div');
         let content = document.createElement('div');
         let btn = document.createElement('button');
+        let boughtBtn = document.createElement('div');
+        let boughtInput = document.createElement('input');
+        let boughtLabel = document.createElement('label');
 
         item.setAttribute('data-id', doc.id);
         item.setAttribute('class', 'item');
@@ -18,17 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
         leftDiv.setAttribute('class', 'left floated content');
         content.setAttribute('class', 'content');
         btn.setAttribute('class', 'ui negative button');
+        boughtBtn.setAttribute('class', 'right floated content ui toggle checkbox');
+        boughtInput.setAttribute('type', 'checkbox');
         
         name.innerText = doc.data().name;
         quantity.innerText = doc.data().quantity;
         btn.innerText = 'Delete';
+        boughtLabel.innerText = 'Bought';
 
+        boughtBtn.appendChild(boughtInput);
+        boughtBtn.appendChild(boughtLabel);
         rightDiv.appendChild(btn);
         leftDiv.appendChild(name);
         content.appendChild(quantity);
         item.appendChild(rightDiv);
         item.appendChild(leftDiv);
         item.appendChild(content);
+        item.appendChild(boughtBtn);
         list.appendChild(item);
 
         btn.addEventListener('click', deleteItem);
