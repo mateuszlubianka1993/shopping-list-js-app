@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let content = document.createElement('div');
         let btn = document.createElement('button');
 
-        item.setAttribute('data-id', doc.id);
         item.setAttribute('class', 'item');
         rightDiv.setAttribute('class', 'right floated content');
+        rightDiv.setAttribute('data-id', doc.id);
         leftDiv.setAttribute('class', 'left floated content');
         content.setAttribute('class', 'content');
         btn.setAttribute('class', 'ui negative button');
@@ -29,6 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
         item.appendChild(leftDiv);
         item.appendChild(content);
         list.appendChild(item);
+
+        btn.addEventListener('click', deleteItem);
+    };
+
+    const deleteItem = (e) => {
+        let itemId = e.target.parentElement.getAttribute('data-id');
+        dataBase.collection('things').doc(itemId).delete();
     };
 
     dataBase.collection('things').get().then((snapshot)=>{
