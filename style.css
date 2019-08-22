@@ -26,3 +26,25 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+#shopping-list {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 25vh;
+    background-color: #cacaca;
+    padding: 20px 10px;
+}
+
+#shopping-list li {
+    padding: 10px;  
+}
+
+#shopping-list li::before {
+    display: none;
+}
+
+.detail-box {
+    font-size: 18px;
+    text-transform: capitalize;
+}

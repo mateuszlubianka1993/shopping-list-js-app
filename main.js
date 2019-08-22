@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const list = document.querySelector('.list');
+    const list = document.querySelector('.shopping-list');
     const appForm = document.querySelector('.app-form')
 
     const displayItems = (doc) => {
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         item.setAttribute('data-id', doc.id);
         item.setAttribute('class', 'item');
-        rightDiv.setAttribute('class', 'right floated content');
+        rightDiv.setAttribute('class', 'right floated content detail-box');
         rightDiv.setAttribute('data-id', doc.id);
-        leftDiv.setAttribute('class', 'left floated content');
-        content.setAttribute('class', 'content');
+        leftDiv.setAttribute('class', 'left floated content detail-box');
+        content.setAttribute('class', 'content detail-box');
         btn.setAttribute('class', 'ui negative button');
         boughtBtn.setAttribute('class', 'right floated content ui toggle checkbox');
         boughtBtn.setAttribute('data-id', doc.id);
@@ -28,17 +28,18 @@ document.addEventListener("DOMContentLoaded", function () {
         name.innerText = doc.data().name;
         quantity.innerText = doc.data().quantity;
         btn.innerText = 'Delete';
-        boughtLabel.innerText = 'Bought';
+        // boughtLabel.innerText = 'Bought';
 
         boughtBtn.appendChild(boughtInput);
         boughtBtn.appendChild(boughtLabel);
         rightDiv.appendChild(btn);
+        rightDiv.appendChild(boughtBtn);
         leftDiv.appendChild(name);
         content.appendChild(quantity);
         item.appendChild(rightDiv);
         item.appendChild(leftDiv);
         item.appendChild(content);
-        item.appendChild(boughtBtn);
+        // item.appendChild(boughtBtn);
         list.appendChild(item);
 
         btn.addEventListener('click', deleteItem);
