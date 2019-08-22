@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         content.setAttribute('class', 'content');
         btn.setAttribute('class', 'ui negative button');
         boughtBtn.setAttribute('class', 'right floated content ui toggle checkbox');
+        boughtBtn.setAttribute('data-id', doc.id);
         boughtInput.setAttribute('type', 'checkbox');
         
         name.innerText = doc.data().name;
@@ -41,11 +42,23 @@ document.addEventListener("DOMContentLoaded", function () {
         list.appendChild(item);
 
         btn.addEventListener('click', deleteItem);
+        boughtBtn.addEventListener('click', isBoughtUpdate);
     };
 
     const deleteItem = (e) => {
         let itemId = e.target.parentElement.getAttribute('data-id');
         dataBase.collection('things').doc(itemId).delete();
+    };
+
+    const isBoughtUpdate = (e) => {
+        let itemId = e.target.parentElement.getAttribute('data-id');
+        
+        let item = dataBase.collection('things').doc(itemId);
+        item.get().then(doc => {
+            dataBase.collection('things').doc(itemId).update({
+                isBought: !doc.data().isBought
+            });
+        })
     };
 
     dataBase.collection('things').onSnapshot(snapshot => {
