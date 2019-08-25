@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         rightDiv.setAttribute('data-id', doc.id);
         leftDiv.setAttribute('class', 'left floated content detail-box');
         content.setAttribute('class', 'content detail-box');
-        btn.setAttribute('class', 'ui negative button');
+        btn.setAttribute('class', 'ui tiny negative button');
         
         name.innerText = doc.data().name;
         quantity.innerText = doc.data().quantity;

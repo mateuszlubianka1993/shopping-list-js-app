@@ -1,0 +1,20 @@
+@media (max-width: 991px) {
+    #shopping-list {
+        width: 70%;
+    }
+    .app-form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+    #shopping-list {
+        width: 90%;
+    }
+    .app-form {
+        width: 95%;
+    }
+    .detail-box {
+        font-size: 15px;
+    }
+}
