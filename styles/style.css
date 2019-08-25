@@ -1,0 +1,49 @@
+body {
+    background-color: #0f0f0f;
+}
+.main-header {
+    padding: 60px 0;
+    background-image: url('../img/background-black-blank-733857.jpg');
+    /* Photo by Tirachard Kumtanom from Pexels */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.list-section {
+    padding: 20px 0;
+    background-color: #dadada;
+}
+
+.app-form {
+    padding: 35px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-fields-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#shopping-list {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 25vh;
+    background-color: #cacaca;
+    padding: 20px 10px;
+}
+
+#shopping-list li {
+    padding: 10px;  
+}
+
+#shopping-list li::before {
+    display: none;
+}
+
+.detail-box {
+    font-size: 18px;
+    text-transform: capitalize;
+}
